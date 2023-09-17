@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+
+<html >
+<head>
+  <meta charset="UTF-8">
+
+  <!-- Make it compatible to mobile devices -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Electricity Consumption Prediction</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static',filename='css/style.css') }}">
+</head>
+<h1 class="appname textclr">Electricity Consumption Prediction for Household</h1>
+ <main class="login">
+    <form action="{{ url_for('predict')}}"method="post">
+        <div class="question-container">
+          <p class="question textclr">How many rooms do you have in your house?</p>
+    	    <input class="age-input textclr" type="number" name="num_rooms" placeholder="Enter rooms count" required="required" />
+        </div>
+        <br><br>
+
+        <div class="question-container">
+          <p class="question textclr">Number of People living in the house?</p>
+          <input class="age-input textclr" type="number" name="num_people" placeholder="Enter people count" required="required" />
+        </div>
+        <br><br>
+
+        <div class="question-container">
+          <p class="question textclr">What is area of your house?</p>
+          <input class="age-input textclr" type="number" name="housearea" placeholder="Enter house area" required="required" />
+        </div>
+        <br><br>
+
+        <div class="question-container">
+          <p class="question textclr">Do you have AC?</p>
+          <div class="label-container">
+            <label class="textclr"><input class="radio-input textclr" type="radio" name="is_ac" value="1" required="required" />Yes</label>
+            <label class="textclr"><input class="radio-input textclr" type="radio" name="is_ac" value="0" required="required" />No</label>
+          </div>
+        </div>
+        <br><br>
+
+        <div class="question-container">
+          <p class="question read-more-q textclr">Do you have TV?</p>
+          <div class="label-container">
+            <label class="textclr"><input class="radio-input textclr" type="radio" name="is_tv" value="1" required="required" />Yes</label>
+            <label class="textclr"><input class="radio-input textclr" type="radio" name="is_tv" value="0" required="required" />No</label>
+          </div>
+        </div>
+        <br><br>
+
+        <div class="question-container">
+          <p class="question read-more-q textclr">Are you living in the flats?</p>
+          <div class="label-container">
+            <label class="textclr"><input class="radio-input textclr" type="radio" name="is_flat" value="1" required="required" />Yes</label>
+            <label class="textclr"><input class="radio-input textclr" type="radio" name="is_flat" value="0" required="required" />No</label>
+          </div>
+        </div>
+        <br><br>
+
+        <div class="question-container">
+          <p class="question textclr">You average monthly income?</p>
+          <input class="age-input textclr" type="number" name="ave_monthly_income" placeholder="Enter monthly income" required="required" />
+        </div>
+        <br><br>
+
+        <div class="question-container">
+          <p class="question textclr">How many children do you have? (if none, please add 0)</p>
+          <input class="age-input textclr" type="number" name="num_children" placeholder="Enter children" required="required" />
+        </div>
+        <br><br>
+
+        <div class="question-container">
+          <p class="question read-more-q textclr">Are you living in urban area?</p>
+          <div class="label-container">
+            <label class="textclr"><input class="radio-input textclr" type="radio" name="is_urban" value="1" required="required" />Yes</label>
+            <label class="textclr"><input class="radio-input textclr" type="radio" name="is_urban" value="0" required="required" />No</label>
+          </div>
+        </div>
+        <br><br>
+
+        <button type="submit" class="btn-submit" onclick="window.location.href='{{ url_for('predict') }}';">Get Results</button>
+    </form>
+  </main>
+ <footer>
+  <p>"Every act of energy conservation... is more than just common sense: I tell you it is an act of patriotism." - Jimmy Carter</p>
+ </footer>
+
+</body>
+</html>
